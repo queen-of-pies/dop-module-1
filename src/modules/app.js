@@ -1,4 +1,4 @@
-import {DonatsBlock} from "./donats-block";
+import {DonatsBlock} from "./donats-block"
 
 export class App {
     #donatsBlock

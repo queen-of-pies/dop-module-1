@@ -1,5 +1,5 @@
 import {formatDate} from "../utils"
-import {TotalDonatsBlock} from "./total-donats-block";
+import {TotalDonatsBlock} from "./total-donats-block"
 
 export class DonatsBlock {
     #container
@@ -16,12 +16,14 @@ export class DonatsBlock {
         donat.innerHTML = `${formatDate()} - `
 
         const priceDonat = document.createElement('b')
-        const donatValue = document.querySelector('.donate-form__donate-input').value
-        priceDonat.innerHTML = `${donatValue} $`
+        const input = document.querySelector('.donate-form__donate-input')
+        priceDonat.innerHTML = `${input.value} $`
 
         donat.insertAdjacentElement('beforeend', priceDonat)
         this.#container.insertAdjacentElement('beforeend', donat)
 
-        this.#totalDonatsBlock.render(donatValue)
+        this.#totalDonatsBlock.render(input.value)
+
+        input.value = ''
     }
 }
